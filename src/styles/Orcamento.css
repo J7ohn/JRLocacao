@@ -1,0 +1,80 @@
+/* Estilo base para o formulário */
+.form {
+  background-color: #ffffff;
+  padding: 20px;
+  max-width: 400px;
+  margin: 200px auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Título do formulário */
+.form .title {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Flex container para inputs alinhados lado a lado */
+.flex {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Estilo para os labels */
+.form label {
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Estilo dos inputs */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Placeholder como label flutuante */
+.input + span {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+/* Estilo quando o input está em foco */
+.input:focus {
+  border-color: #388E3C;
+  background-color: #ffffff;
+}
+
+.input:focus + span,
+.input:not(:placeholder-shown) + span {
+  top: -10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: #4CAF50;
+  background-color: #fff;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .flex {
+      flex-direction: column;
+  }
+}
