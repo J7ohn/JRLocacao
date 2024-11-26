@@ -72,3 +72,17 @@ export const deletarAgendamento = async (id) => {
     await deleteDoc(doc(db, "agendamentos", id));
 };
 
+// Função para verificar se o usuário é admin
+export const verificarAdmin = async (email) => {
+    const querySnapshot = await getDocs(collection(db, "clientes"));
+    const clientes = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const cliente = clientes.find(cliente => cliente.email === email);
+
+    return cliente && cliente.tipo === 'adm';
+};
+
+
+
+
+
+
