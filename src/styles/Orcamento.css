@@ -1,15 +1,26 @@
-/* Estilo base para o formulário */
+/* Orcamento.css */
+
+/* Container do formulário */
 .form {
   background-color: #ffffff;
-  padding: 20px;
-  max-width: 400px;
-  margin: 200px auto;
-  font-family: 'Arial', sans-serif;
+  padding: 40px;
+  max-width: 800px; /* Aumentado para ocupar mais espaço horizontalmente */
+  width: 100%; /* Responsividade */
+  margin: 0 auto; /* Centralizar horizontalmente */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #333;
+  height: 70vh; /* Ajusta o formulário para ocupar 70% da altura da tela */
+  margin-top: 15vh; /* Centraliza verticalmente com margem superior */
+  margin-bottom: 15vh; /* Ajuste a margem inferior, se necessário */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaço entre os elementos */
+  padding-bottom: 20px; /* Um pouco de espaço no final para o botão */
 }
 
 /* Título do formulário */
-.form .title {
+.title {
   font-size: 1.5rem;
   color: #4CAF50;
   text-align: center;
@@ -20,15 +31,20 @@
 /* Flex container para inputs alinhados lado a lado */
 .flex {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 /* Estilo para os labels */
-.form label {
+label {
   position: relative;
   display: block;
   margin-bottom: 20px;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #4CAF50; /* Borda verde para os labels */
+  color: #333; /* Cor do texto do label */
 }
 
 /* Estilo dos inputs */
@@ -72,9 +88,39 @@
   border-radius: 3px;
 }
 
+/* Estilo para o botão do WhatsApp */
+.whatsapp-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #70a470;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px; /* Espaçamento entre o botão e os campos */
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe57;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
-  .flex {
-      flex-direction: column;
+  .form {
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .input {
+    border: none;
+    background-color: #fff;
+  }
+
+  /* Remover bordas do botão do WhatsApp */
+  .whatsapp-button {
+    border: none;
+    background-color: #70a470;
   }
 }

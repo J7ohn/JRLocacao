@@ -1,17 +1,18 @@
-import '../styles/HomePage.css'; // Certifique-se de ter um arquivo CSS para estilização
-import CardMaquinas from '../components/layout/CardMaquinas'
+import Principal1 from '../components/Principal1'
+import Principal2 from '../components/Principal2'
+import Principal3 from '../components/Principal3'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
     return (
-        <div className="home-page">
-            <header className="hero-section">
-                <h1 className="fade-in">Bem-vindo à Nossa Locadora de Máquinas Pesadas</h1>
-                <p className="slide-in">Venda e locação de caminhões e tratores de alta qualidade.</p>
-            </header>
-            <CardMaquinas/>
+        <div className="App">
+            <Principal1/>
+            <Principal2/>
+            <Principal3/>
+            <Principal2/>
+            <Footer/>
         </div>
-        
     );
-};
+}
 
 export default HomePage;

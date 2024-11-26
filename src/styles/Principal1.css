@@ -1,0 +1,61 @@
+.container {
+  background: linear-gradient(to right, rgba(79, 111, 79, 0.7), #4f6f4f), url('../../public/trator-block1.jpg') no-repeat center center; /* Imagem como fundo com gradiente */
+  background-size: cover;
+  color: white;
+  height: 100vh; /* Ocupa a altura total da viewport */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.text-container {
+  max-width: 800px;
+  font-size: 2rem;
+  text-align: left;
+  margin-right: 240px;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #fff;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.description {
+  margin: 10px 0;
+  font-size: 1.5rem;
+}
+
+.budget-button {
+  width: 300px;
+}
+
+/* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    justify-content: center; /* Centraliza os elementos verticalmente */
+    height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 10px;
+  }
+
+  .text-container {
+    max-width: 100%;
+    font-size: 1.2rem;
+    margin: 0; /* Remove margem extra */
+    border: none; /* Remove borda */
+    border-radius: 0; /* Remove borda arredondada */
+    padding: 10px; /* Ajusta padding */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .budget-button {
+    width: 100%;
+    max-width: 200px; /* Define um limite para a largura do botão */
+    margin: 0 auto; /* Centraliza o botão */
+  }
+}

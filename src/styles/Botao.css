@@ -1,0 +1,14 @@
+.budget-button {
+    padding: 10px 20px;
+    background-color: #70a470;
+    border: none;
+    border-radius: 15px; /* Bordas arredondadas */
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.budget-button:hover{
+    background-color: #7dab7d;
+}

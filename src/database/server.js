@@ -24,3 +24,51 @@ export const atualizarMaquina = async (id, maquinaAtualizada) => {
 export const deletarMaquina = async (id) => {
     await deleteDoc(doc(db, "maquinas", id));
 };
+
+
+// Função para obter todos os clientes
+export const getClientes = async () => {
+    const querySnapshot = await getDocs(collection(db, "clientes"));
+    const clientesList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return clientesList;
+};
+
+// Função para adicionar um novo cliente
+export const adicionarCliente = async (novoCliente) => {
+    await addDoc(collection(db, "clientes"), novoCliente);
+};
+
+// Função para atualizar um cliente existente
+export const atualizarCliente = async (id, clienteAtualizado) => {
+    const clienteRef = doc(db, "clientes", id);
+    await updateDoc(clienteRef, clienteAtualizado);
+};
+
+// Função para deletar um cliente
+export const deletarCliente = async (id) => {
+    await deleteDoc(doc(db, "clientes", id));
+};
+
+// Função para obter todos os agendamentos
+export const getAgendamentos = async () => {
+    const querySnapshot = await getDocs(collection(db, "agendamentos"));
+    const agendamentosList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return agendamentosList;
+};
+
+// Função para adicionar um novo agendamento
+export const adicionarAgendamento = async (novoAgendamento) => {
+    await addDoc(collection(db, "agendamentos"), novoAgendamento);
+};
+
+// Função para atualizar um agendamento existente
+export const atualizarAgendamento = async (id, agendamentoAtualizado) => {
+    const agendamentoRef = doc(db, "agendamentos", id);
+    await updateDoc(agendamentoRef, agendamentoAtualizado);
+};
+
+// Função para deletar um agendamento
+export const deletarAgendamento = async (id) => {
+    await deleteDoc(doc(db, "agendamentos", id));
+};
+

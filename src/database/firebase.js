@@ -1,20 +1,22 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Importa o Firestore
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth"; // Importação do autenticador
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID
+  apiKey: "AIzaSyAIkXX2Vb0Bb-mg2JxEcJqbGdFdMpVMAhY",
+  authDomain: "jr-locacao.firebaseapp.com",
+  projectId: "jr-locacao",
+  storageBucket: "jr-locacao.firebasestorage.app",
+  messagingSenderId: "309804698636",
+  appId: "1:309804698636:web:ededfcb762c6864a61f229",
+  measurementId: "G-ESZ1D0ET1K"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const db = getFirestore(app);
+const auth = getAuth(app); // Inicializa e exporta o autenticador do Firebase
 
-// Initialize Firestore and export it
-export const db = getFirestore(app); // Adiciona e exporta a instância do Firestore
+export { db, app, auth }; // Exporta o autenticador

@@ -1,0 +1,16 @@
+/* Footer.css */
+
+.footer {
+  background-color: #6f6f6f;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}

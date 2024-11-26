@@ -1,0 +1,93 @@
+/* Principal3.css */
+
+.block3 {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.block3 h2 {
+    color: #4f6f4f;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.block3 p {
+    line-height: 1.6;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.company {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 0.5s forwards;
+}
+
+.company:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.company:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.company:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.company h3 {
+    color: #4f6f4f;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.company p {
+    color: #666;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* Efeito de chegada */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+    .company-info {
+        flex-direction: column;
+    }
+
+    .company {
+        flex: 1;
+    }
+}
