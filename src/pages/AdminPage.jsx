@@ -58,10 +58,10 @@ export default () => {
     };
 
     const handleAddAgendamento = async () => {
-        const maquinaIndisponivel = agendamentos.some(agendamento => 
-            agendamento.maquinaId === novoAgendamento.maquinaId && 
+        const maquinaIndisponivel = agendamentos.some(agendamento =>
+            agendamento.maquinaId === novoAgendamento.maquinaId &&
             ((novoAgendamento.dataInicio >= agendamento.dataInicio && novoAgendamento.dataInicio <= agendamento.dataFim) ||
-            (novoAgendamento.dataFim >= agendamento.dataInicio && novoAgendamento.dataFim <= agendamento.dataFim))
+                (novoAgendamento.dataFim >= agendamento.dataInicio && novoAgendamento.dataFim <= agendamento.dataFim))
         );
 
         if (maquinaIndisponivel) {
@@ -168,14 +168,25 @@ export default () => {
                 <div>
                     <h3>Agendamentos</h3>
                     <ul>
-                        {agendamentos.map(agendamento => (
-                            <li key={agendamento.id}>
-                                Cliente: {agendamento.clienteId} - Máquina: {agendamento.maquinaId} - Data Início: {agendamento.dataInicio} - Data Fim: {agendamento.dataFim}
-                            </li>
-                        ))}
+                        {agendamentos.map(agendamento => {
+                            // Encontre o cliente e a máquina correspondentes ao agendamento
+                            const cliente = clientes.find(cliente => cliente.id === agendamento.clienteId);
+                            const maquina = maquinas.find(maquina => maquina.id === agendamento.maquinaId);
+
+                            return (
+                                <li key={agendamento.id}>
+                                    {/* Exibe o nome do cliente e o modelo da máquina */}
+                                    Cliente: {cliente ? cliente.nome : 'Cliente Desconhecido'} -
+                                    Máquina: {maquina ? maquina.nome : 'Máquina Desconhecida'} -
+                                    Data Início: {agendamento.dataInicio} -
+                                    Data Fim: {agendamento.dataFim}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             )}
+
 
             <button onClick={() => setMostrarClientes(!mostrarClientes)}>Ver Clientes</button>
             {mostrarClientes && (

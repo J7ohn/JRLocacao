@@ -1,45 +1,180 @@
+/* Estrutura geral da página */
 .admin-page {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
     background-color: #f4f4f4;
     padding: 20px;
-    color: #333;
+    font-family: Arial, sans-serif;
+    position: relative; /* Para garantir que o menu lateral fique posicionado corretamente */
 }
 
-h2, h3 {
+/* Título da página */
+.admin-page h2 {
+    font-size: 2rem;
     color: #70a470;
+    margin-bottom: 20px;
 }
 
-input[type="text"], input[type="number"], input[type="date"], select {
-    margin: 10px 0;
-    padding: 8px;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-button {
+/* Estilos dos botões (específicos para os botões na página) */
+.admin-page button {
     background-color: #70a470;
     color: white;
-    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.admin-page button:hover {
+    background-color: #5e8c5e;
+}
+
+/* Estilos específicos para os labels */
+label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    display: block;
+    color: #4e8b4e; /* Novo tom de verde */
+}
+
+/* Menu lateral escondido (para cadastro de máquinas e agendamentos) */
+.cadastro-section {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 300px;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 10;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.cadastro-section.active {
+    display: block;
+    transform: translateX(0);
+}
+
+/* Botões para alternar a visualização dos dados (máquinas, agendamentos, clientes) */
+.admin-page > button.mostrar-agendamentos,
+.admin-page > button.mostrar-maquinas,
+.admin-page > button.mostrar-clientes {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Seções de dados que devem ter scroll */
+.admin-page .dados-section {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Estilo para o conteúdo expandido (máquinas, agendamentos) */
+.mostrar {
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* Estilos para listas dentro das seções */
+.mostrar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mostrar li {
+    margin-bottom: 10px;
+}
+
+.mostrar li button {
+    background-color: #ff4747;
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #609f5b;
+.mostrar li button:hover {
+    background-color: #d03c3c;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+/* Flexbox para a centralização dos botões */
+.admin-page > button {
+    display: block;
+    text-align: center;
 }
 
-li {
-    margin: 10px 0;
+/* Área de dados (máquinas, agendamentos, clientes) com scroll */
+.mostrar-agendamentos,
+.mostrar-maquinas,
+.mostrar-clientes {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #ffffff;
 }
 
-button[onClick]:hover {
-    background-color: #609f5b;
+/* Centralização dos botões principais para mostrar dados */
+.admin-page > button {
+    display: block;
+    text-align: center;
+}
+
+/* Estilos para os botões específicos de cadastro e agendamento */
+button.cadastrar {
+    background-color: #528c52; /* Tom de verde diferente para "Cadastrar" */
+}
+
+button.cadastrar:hover {
+    background-color: #3e693e; /* Tom mais escuro para hover */
+}
+
+button.agendar {
+    background-color: #5a8a5a; /* Tom de verde mais suave para "Agendar" */
+}
+
+button.agendar:hover {
+    background-color: #477047; /* Tom mais escuro para hover */
+}
+
+/* Menu lateral responsivo */
+@media (max-width: 900px) {
+    .cadastro-section {
+        width: 100%;
+    }
+
+    .admin-page {
+        padding: 10px;
+    }
+
+    .admin-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .admin-page > button {
+        max-width: 100%;
+    }
+
+    .mostrar-agendamentos,
+    .mostrar-maquinas,
+    .mostrar-clientes {
+        max-height: 50vh;
+    }
 }

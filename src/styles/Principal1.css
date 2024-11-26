@@ -1,5 +1,5 @@
 .container {
-  background: linear-gradient(to right, rgba(79, 111, 79, 0.7), #4f6f4f), url('../../public/trator-block1.jpg') no-repeat center center; /* Imagem como fundo com gradiente */
+  background: linear-gradient(to right, rgba(79, 111, 79, 0.7), #4f6f4f), url('../assets/trator-block1.jpg') no-repeat center center; /* Imagem como fundo com gradiente */
   background-size: cover;
   color: white;
   height: 100vh; /* Ocupa a altura total da viewport */
